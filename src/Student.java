@@ -1,15 +1,13 @@
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    private long id;
+    private final long id;
     private String name;
     private int age;
     private boolean gender;
     private String address;
     private double avg;
 
-    public Student() {
-    }
 
     public Student(long id, String name, int age, boolean gender, String address, double avg) {
         this.id = id;
@@ -24,9 +22,6 @@ public class Student implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
