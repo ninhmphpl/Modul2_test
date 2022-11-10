@@ -52,8 +52,9 @@ public class _IOFile {
 
     public static void writeFileCSV(ArrayList<Student> list, File file){
         try {
+            checkFile(file);
             FileWriter fileWriter = new FileWriter(file);
-            fileWriter.append(String.format("%-10s%-20s%-10s%-20s%-40s%-10s", "id", "Name", "Age", "Gender", "Address", "Avg" ));
+            fileWriter.append("id,Name,Age,Gender,Address,Avg");
             for (Student student : list){
                 fileWriter.append(String.valueOf(student.getId()));
                 fileWriter.append(',');
@@ -68,6 +69,8 @@ public class _IOFile {
                 fileWriter.append(String.valueOf(student.getAvg()));
                 fileWriter.append('\n');
             }
+            fileWriter.close();
+            System.out.println("Done");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
